@@ -1,0 +1,13 @@
+<div class="category-list">
+    <h2>List of categories</h2>
+  
+    <label for="order">Order by name:</label>
+    <select id="order" (change)="onOrderChange($event)">
+      <option value="asc">Asc</option>
+      <option value="desc">Desc</option>
+    </select>
+  
+    <ul>
+      <li *ngFor="let category of categories">{{ category.name }}</li>
+    </ul>
+  </div>

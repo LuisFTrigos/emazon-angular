@@ -1,0 +1,15 @@
+<div class="sidebar" [class.open]="opened">
+    <ul>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Create categories</a></li>
+    </ul>
+  </div>
+  
+  <div class="toggle-btn" (click)="toggleSidebar()">
+    &#9776;
+  </div>
+  
+  <div class="main-content" [class.shift]="opened">
+    <h1></h1>
+    <p></p>
+  </div>

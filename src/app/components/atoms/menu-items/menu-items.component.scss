@@ -1,0 +1,17 @@
+/* Button styles */
+button {
+    padding: 0.5rem 1rem;
+    background-color: #67928a;
+    color: rgb(111, 196, 200);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }

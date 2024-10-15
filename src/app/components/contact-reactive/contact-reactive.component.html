@@ -1,0 +1,38 @@
+<h1>Create Category</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+  <div class="mb-4">
+    <label labelFor="name" class="form-label" >Name</label>
+    <input type="text" formControlName="categoryName" placeholder="Write the name of category">
+    <div *ngIf="categoryForm.get('categoryName')?.touched && categoryForm.get('categoryName')?.errors?.['required']"
+      class="alert alert-danger">
+      This field is required.
+    </div>
+    <div *ngIf="categoryForm.get('categoryName')?.touched && categoryForm.get('categoryName')?.errors?.['minlength']"
+      class="alert alert-danger"> Category name must be longer than
+      {{ categoryForm.get('categoryName')?.errors?.['minlength']?.requiredLength}} characters.</div>
+    <div *ngIf="categoryForm.get('categoryName')?.touched && categoryForm.get('categoryName')?.errors?.['maxlength']"
+      class="alert alert-danger"> Category name cannot be more than   
+      {{ categoryForm.get('categoryName')?.errors?.['maxlength']?.requiredLength}} characters.</div>
+  </div>
+
+
+
+  <div>
+    <label labelFor="name" class="form-label">Description</label>
+    <input type="text" formControlName="categoryDescription" placeholder="Write the category description">
+    <div *ngIf="categoryForm.get('categoryDescription')?.touched && categoryForm.get('categoryDescription')?.errors?.['required']"
+      class="alert alert-danger">
+      This field is required.
+    </div>
+    <div *ngIf="categoryForm.get('categoryDescription')?.touched && categoryForm.get('categoryDescription')?.errors?.['minlength']"
+      class="alert alert-danger"> Category description must be longer than
+      {{ categoryForm.get('categoryDescription')?.errors?.['minlength']?.requiredLength}} characters.</div>
+    <div *ngIf="categoryForm.get('categoryDescription')?.touched && categoryForm.get('categoryDescription')?.errors?.['maxlength']"
+      class="alert alert-danger"> Category description cannot be more than 90 characters.
+      {{ categoryForm.get('categoryDescription')?.errors?.['maxlength']?.requiredLength}} characters.</div>
+  </div>
+  <div class="d-grid gap-2 col-4 float-end">
+    <app-menu-items type="submit" class="btn btn-info btn-create" buttonText="Create"
+      [disabled]="categoryForm.invalid"></app-menu-items>
+  </div>
+</form>
