@@ -1,38 +1,38 @@
 <h1>Create Category</h1>
-<form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+<form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
   <div class="mb-4">
-    <label labelFor="name" class="form-label" >Name</label>
-    <input type="text" formControlName="categoryName" placeholder="Write the name of category">
-    <div *ngIf="categoryForm.get('categoryName')?.touched && categoryForm.get('categoryName')?.errors?.['required']"
-      class="alert alert-danger">
+    <label labelFor="categoryName" class="form-label" >Name</label>
+    <input id="categoryName" type="text" formControlName="categoryName" placeholder="Write the name of category">
+    <div *ngIf="profileForm.get('categoryName')?.touched && profileForm.get('categoryName')?.errors?.['required']"
+      class="alert">
       This field is required.
     </div>
-    <div *ngIf="categoryForm.get('categoryName')?.touched && categoryForm.get('categoryName')?.errors?.['minlength']"
-      class="alert alert-danger"> Category name must be longer than
-      {{ categoryForm.get('categoryName')?.errors?.['minlength']?.requiredLength}} characters.</div>
-    <div *ngIf="categoryForm.get('categoryName')?.touched && categoryForm.get('categoryName')?.errors?.['maxlength']"
-      class="alert alert-danger"> Category name cannot be more than   
-      {{ categoryForm.get('categoryName')?.errors?.['maxlength']?.requiredLength}} characters.</div>
+    <div *ngIf="profileForm.get('categoryName')?.touched && profileForm.get('categoryName')?.errors?.['minlength']"
+      class="alert"> Category name must be longer than
+      {{ profileForm.get('categoryName')?.errors?.['minlength']?.requiredLength}} characters.</div>
+    <div *ngIf="profileForm.get('categoryName')?.touched && profileForm.get('categoryName')?.errors?.['maxlength']"
+      class="alert"> Category name cannot be more than   
+      {{ profileForm.get('categoryName')?.errors?.['maxlength']?.requiredLength}} characters.</div>
   </div>
 
 
 
   <div>
-    <label labelFor="name" class="form-label">Description</label>
-    <input type="text" formControlName="categoryDescription" placeholder="Write the category description">
-    <div *ngIf="categoryForm.get('categoryDescription')?.touched && categoryForm.get('categoryDescription')?.errors?.['required']"
-      class="alert alert-danger">
+    <label labelFor="categoryDescription" class="form-label">Description</label>
+    <input id="categoryDescription" type="text" formControlName="categoryDescription" placeholder="Write the category description">
+    <div *ngIf="profileForm.get('categoryDescription')?.touched && profileForm.get('categoryDescription')?.errors?.['required']"
+      class="alert">
       This field is required.
     </div>
-    <div *ngIf="categoryForm.get('categoryDescription')?.touched && categoryForm.get('categoryDescription')?.errors?.['minlength']"
-      class="alert alert-danger"> Category description must be longer than
-      {{ categoryForm.get('categoryDescription')?.errors?.['minlength']?.requiredLength}} characters.</div>
-    <div *ngIf="categoryForm.get('categoryDescription')?.touched && categoryForm.get('categoryDescription')?.errors?.['maxlength']"
-      class="alert alert-danger"> Category description cannot be more than 90 characters.
-      {{ categoryForm.get('categoryDescription')?.errors?.['maxlength']?.requiredLength}} characters.</div>
+    <div *ngIf="profileForm.get('categoryDescription')?.touched && profileForm.get('categoryDescription')?.errors?.['minlength']"
+      class="alert"> Category description must be longer than
+      {{ profileForm.get('categoryDescription')?.errors?.['minlength']?.requiredLength}} characters.</div>
+    <div *ngIf="profileForm.get('categoryDescription')?.touched && profileForm.get('categoryDescription')?.errors?.['maxlength']"
+      class="alert"> Category description cannot be more than 90 characters.
+      {{ profileForm.get('categoryDescription')?.errors?.['maxlength']?.requiredLength}} characters.</div>
   </div>
   <div class="d-grid gap-2 col-4 float-end">
     <app-menu-items type="submit" class="btn btn-info btn-create" buttonText="Create"
-      [disabled]="categoryForm.invalid"></app-menu-items>
+      [disabled]="profileForm.invalid"></app-menu-items>
   </div>
 </form>

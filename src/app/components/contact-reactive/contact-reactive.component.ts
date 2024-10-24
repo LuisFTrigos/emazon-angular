@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -8,14 +9,15 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./contact-reactive.component.scss']
 })
 export class ContactReactiveComponent implements OnInit {
-  categoryForm!: FormGroup;
-  categoryName: string = '';
-  categoryDescription: string = '';
+  profileForm = new FormGroup({
+    categoryName: new FormControl(''),
+    categoryDescription: new FormControl('')
+  })
 
   constructor(private fb: FormBuilder, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.categoryForm = this.initForm();
+    this.profileForm = this.initForm();
   }
 
   initForm():FormGroup{
@@ -26,17 +28,17 @@ export class ContactReactiveComponent implements OnInit {
   }
 
     onSubmit() {
-      if(this.categoryForm.valid){
-        console.log('this is a category ',this.categoryName)
-        this.categoryService.createCategory(this.categoryForm.value).subscribe(
-          response => {
-            console.log('Created category: ', response);
-            this.categoryForm.reset();
-          },
-          error => {
-            console.error('Error to create the category', error);
-          }
-        );
-      }
+    
+        const category: Category = {categoryName: this.profileForm.value?.categoryName || '' ,
+           categoryDescription:this.profileForm.value?.categoryDescription || ''};
+
+        this.categoryService
+        .createCategory(category)
+        .subscribe( res => {console.warn('Category created' ,res)});
+        this.profileForm.reset();
+          
+        console.warn(this.profileForm.value)
+      
     }
+    
 }

@@ -15,24 +15,29 @@
   }
   
   .error {
-    color: red;
+    color: rgb(219, 20, 20);
     font-size: 0.9rem;
     margin-top: 0.5rem;
   }
   
   button {
     padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
+    background-color: #74c773;
+    color: rgb(189, 75, 75);
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
   button:disabled {
-    background-color: #ccc;
+    background-color: #8c6c6c;
   }
   
   button:hover:not(:disabled) {
     background-color: #0056b3;
+  }
+
+  .alert{
+    font-size: 0.8em;
+    color: red;
   }
