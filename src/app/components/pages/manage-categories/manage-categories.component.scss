@@ -1,0 +1,13 @@
+.logo-menu{
+    width: 100px;  
+    height: auto;   
+    max-height: 50px; 
+    object-fit: contain; 
+}
+
+@media (max-width: 768px) {
+    .logo {
+      width: 50px;  
+      max-height: 25px;
+    }
+  }

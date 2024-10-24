@@ -13,6 +13,9 @@
     <div *ngIf="profileForm.get('categoryName')?.touched && profileForm.get('categoryName')?.errors?.['maxlength']"
       class="alert"> Category name cannot be more than   
       {{ profileForm.get('categoryName')?.errors?.['maxlength']?.requiredLength}} characters.</div>
+      <div *ngIf="errorMessage" class="alert">
+        {{ errorMessage }}
+       </div>
   </div>
 
 

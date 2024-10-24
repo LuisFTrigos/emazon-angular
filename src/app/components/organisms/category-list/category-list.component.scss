@@ -1,15 +1,29 @@
 .category-list {
-    margin: 20px;
+    margin-top: 50px;
+    margin-left: 150px;
+    border-radius: 20px;
+    background: rgb(87, 189, 136);
+    color: #f4f4f4;
+    padding: 10px;
   }
   
+  .text-h2{
+    margin-top: 5px;
+    margin-left: 300px;
+  }
   label {
-    display: block;
-    margin-bottom: 8px;
+    
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
   
   select {
     padding: 8px;
+    border-radius: 10px;
     font-size: 1rem;
+    margin-top: 5px;
+    margin-left: 20px;
     margin-bottom: 20px;
   }
   
@@ -23,4 +37,16 @@
     background-color: #f4f4f4;
     margin-bottom: 10px;
     border-radius: 4px;
+  }
+
+  .names{
+    margin-top: 5px;
+    margin-left: 300px;
+    margin-bottom: 2px;
+  }
+
+  .btn-left-rigth{
+    margin-top: 5px;
+    margin-left: 320px;
+    margin-bottom: 2px;
   }

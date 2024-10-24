@@ -1,13 +1,31 @@
 <div class="category-list">
-    <h2>List of categories</h2>
+    <h2 class="text-h2">List of categories</h2>
   
+    <ul>
+      <li *ngFor="let category of categories">
+        {{ category.name }}
+      </li>
+    </ul>
+
     <label for="order">Order by name:</label>
     <select id="order" (change)="onOrderChange($event)">
       <option value="asc">Asc</option>
       <option value="desc">Desc</option>
     </select>
+
+    <table class="names">
+      <thead>
+        <tr>
+          <th>Nombre de la Categoría</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.name }}</td>
+        </tr>
+      </tbody>
+    </table>
   
-    <ul>
-      <li *ngFor="let category of categories">{{ category.name }}</li>
-    </ul>
-  </div>
+    <button class="btn-left-rigth" (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+    <button (click)="nextPage()">Siguiente</button>
+  
