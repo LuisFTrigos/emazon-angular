@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -7,25 +8,27 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./category-list.component.scss']
 })
 export class CategoryListComponent implements OnInit {
-  categories: any[] = [];
-  currentPage:number = 1;
+  categories: Category[] = [];
+  currentPage:number = 0;
   totalPages:number = 0;
-  pageSize:number = 10;
+  pageSize:number = 5;
   order: 'asc' | 'desc' = 'asc';
+  
 
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
     this.getCategories();
+    console.log(this.categories)
   }
 
   getCategories(): void {
     this.categoryService
     .getCategories(this.currentPage, this.pageSize, this.order)
-    .subscribe(response => {
-      this.categories = response.categories;
-      this.totalPages = response.totalPages;
-    });
+    .subscribe({next: response => {
+      console.log(response.content)
+     this.categories = response.content;
+    }});
   }
 
   onOrderChange(event: any): void {
@@ -33,15 +36,10 @@ export class CategoryListComponent implements OnInit {
     this.getCategories();
   }
 
-  prevPage(): void {
-    if(this.currentPage > 1){
-      this.currentPage--;
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
       this.getCategories();
     }
-  }
-
-  nextPage(): void {
-    this.currentPage++;
-    this.getCategories();
   }
 }

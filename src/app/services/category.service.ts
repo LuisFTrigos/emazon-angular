@@ -11,7 +11,7 @@ export class CategoryService {
   
   private apiUrl = 'http://127.0.0.1:9090/api/category';
 
-  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWNoaXRvQG9sYS5jb20iLCJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjEsImV4cCI6MTczMDM2NDcwMH0.AUQm9wD9RqP9U9WEoLTdZ3-ekdzi9FEVnifgSpt6-5g'
+  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWNoaXRvQG9sYS5jb20iLCJyb2xlIjoiQURNSU4iLCJ1c2VySWQiOjEsImV4cCI6MTczMDY0NDYwN30.5wSTotqOxPKRT8Erbqivq11iQrFNb-UBRRYvTWo4hXw'
   constructor(private httpClient: HttpClient) {}
 
   createCategory(category: Category): Observable<Category> {
@@ -24,7 +24,7 @@ export class CategoryService {
         if(error.status == 400){
           return throwError(() => new Error('Error 400: Failed post. Categoy is already exists.'));
         }
-        return throwError(() => new Error('Ocurrió un error inesperado.'));
+        return throwError(() => new Error('Failed post.'));
       })
     );
   }
@@ -38,7 +38,7 @@ export class CategoryService {
     .set('page', currentPage.toString())
     .set('pageSize', pageSize.toString())
     .set('order', order); 
-    return this.httpClient.get<any>(`${this.apiUrl}?page=${currentPage}&size=${pageSize}`);
+    return this.httpClient.get<any>(`${this.apiUrl}?page=${currentPage}&size=${pageSize}&order=${order}`, {headers});
 
   }
 

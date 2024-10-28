@@ -6,47 +6,63 @@
     color: #f4f4f4;
     padding: 10px;
   }
-  
-  .text-h2{
-    margin-top: 5px;
-    margin-left: 300px;
-  }
-  label {
-    
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
-  
-  select {
-    padding: 8px;
-    border-radius: 10px;
-    font-size: 1rem;
-    margin-top: 5px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  li {
-    padding: 10px;
-    background-color: #f4f4f4;
-    margin-bottom: 10px;
-    border-radius: 4px;
-  }
 
-  .names{
+  .bton-left-rigth{
     margin-top: 5px;
-    margin-left: 300px;
-    margin-bottom: 2px;
+    margin-left: 15px;
+    border-radius: 2px;
   }
+  
+  /* Contenedor principal */
+.category-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
 
-  .btn-left-rigth{
-    margin-top: 5px;
-    margin-left: 320px;
-    margin-bottom: 2px;
-  }
+.category-list {
+  margin: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+/* Estilos para el selector de orden */
+#sortOrder {
+  margin-bottom: 20px;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+ 

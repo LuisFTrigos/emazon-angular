@@ -1,31 +1,31 @@
 <div class="category-list">
     <h2 class="text-h2">List of categories</h2>
-  
-    <ul>
-      <li *ngFor="let category of categories">
-        {{ category.name }}
-      </li>
-    </ul>
 
-    <label for="order">Order by name:</label>
-    <select id="order" (change)="onOrderChange($event)">
-      <option value="asc">Asc</option>
-      <option value="desc">Desc</option>
+     <!-- Selector de orden -->
+  <div class="sort-container">
+    <label for="sortOrder">Ordenar por:</label>
+    <select id="sortOrder" (change)="onOrderChange($event)">
+      <option value="asc" [selected]="order === 'asc'">Asc</option>
+      <option value="desc" [selected]="order === 'desc'">Desc</option>
     </select>
+  </div>
 
-    <table class="names">
-      <thead>
-        <tr>
-          <th>Nombre de la Categoría</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let category of categories">
-          <td>{{ category.name }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Lista de categorías -->
+  <div class="category-list">
+    <div class="category-card" *ngFor="let category of categories">
+      <div class="category-icon">📁</div>
+      <h3 class="category-name">{{ category.categoryName }}</h3>
+      <p class="category-description">{{ category.categoryDescription || 'Descripción no disponible' }}</p>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
+
   
-    <button class="btn-left-rigth" (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
-    <button (click)="nextPage()">Siguiente</button>
+
   
